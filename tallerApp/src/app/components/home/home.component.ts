@@ -13,6 +13,12 @@ export class HomeComponent implements OnInit {
 
   superHeroes = ['Batman', 'Shazam', 'Mujer Maravilla', 'Aquaman', 'Green Arrow'];
 
+  name = 'Dennis Castro';
+  date = new Date();
+  number = 10.5423133121;
+
+  pipeStr = 'esta es Una Cadena qué se Debe capitalizar completa';
+
   constructor() { }
 
   ngOnInit() {

@@ -51,5 +51,55 @@
 
     </div>
 
+    <div class="row">
+        <h1>Pipes</h1>
+        <hr>
+        <div class="col-12">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Pipe</th>
+                        <th scope="col">Sintaxis</th>
+                        <th scope="col">Entrada</th>
+                        <th scope="col">Salida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>UpperCasePipe</td>
+                        <td>{{ name }} | uppercase </td>
+                        <td>{{ name }}</td>
+                        <td> {{name | uppercase}} </td>
+                    </tr>
+                    <tr>
+                        <td>LowerrCasePipe</td>
+                        <td>{{ name }} | lowercase </td>
+                        <td>{{ name }}</td>
+                        <td> {{name | lowercase}} </td>
+                    </tr>
+                    <tr>
+                        <td>DatePipe</td>
+                        <td>fecha | date: 'MMM d, y, h:mm:ss a' </td>
+                        <td>{{ date }}</td>
+                        <td> {{date | date: 'MMM d, y, h:mm:ss a'}} </td>
+                    </tr>
+                    <tr>
+                        <td>DecimalPipe</td>
+                        <td>número | number: '1.2-2' </td>
+                        <td>{{ number }}</td>
+                        <td> {{number | number:'1.2-2'}} </td>
+                    </tr>
+
+                    <tr>
+                        <td>CustomPipe CapitalizePipe</td>
+                        <td>cadena | capitalize: true </td>
+                        <td>{{ pipeStr }}</td>
+                        <td> {{pipeStr | capitalize: true}} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
 
 </div>
