@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  showLeftText = false;
+  showRightText = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onClickLeftButton(){
+    this.showLeftText = !this.showLeftText;
+  }
+
+  onClickRightButton(){
+    this.showRightText = !this.showRightText;
   }
 
 }

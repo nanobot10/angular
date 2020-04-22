@@ -1,1 +1,31 @@
-<p>home works!</p>
+<div class="container">
+
+    <h1>Componente Home</h1>
+    <hr>
+    <div class="row">
+
+        <div class="col-6">
+            <h2>div izquierdo</h2>
+            <p *ngIf="showLeftText">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla voluptatem odio nam nobis aliquid deleniti dolorum natus exercitationem velit voluptate autem consectetur impedit eveniet, porro iure facere? Aut, officia autem!
+            </p>
+            <button class="btn btn-primary" (click)="onClickLeftButton()">
+                ngif
+            </button>
+        </div>
+        <div class="col-6">
+            <h2>div derecho</h2>
+            <p *ngIf="showRightText">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum, mollitia quaerat. Voluptate excepturi, omnis repudiandae soluta distinctio quasi quos, velit delectus doloribus rem beatae enim eius alias neque cumque sed?
+            </p>
+            <button class="btn btn-primary" (click)="onClickRightButton()">
+                ngif
+            </button>
+        </div>
+
+    </div>
+
+    <hr>
+
+
+</div>
