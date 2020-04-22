@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../../services/news.service';
+import { TopHeadline, Article } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-news',
@@ -9,14 +10,15 @@ import { NewsService } from '../../services/news.service';
 export class NewsComponent implements OnInit {
 
 
-  seconds: number;
+ 
+  news: Article[] = [];
 
   constructor(private newsService: NewsService) { }
 
   ngOnInit() {
-    this.newsService.getIntervalSeconds(1000)
-      .subscribe( i => {
-        this.seconds = i;
+    this.newsService.getTopHeadlines()
+      .subscribe( resp => {
+        this.news = resp.articles;
       } );
   }
 
