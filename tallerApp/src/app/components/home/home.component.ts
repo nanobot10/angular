@@ -7,20 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  showLeftText = false;
+  showLeftText = true;
   showRightText = false;
+  isDuplicate = false;
+
+  superHeroes = ['Batman', 'Shazam', 'Mujer Maravilla', 'Aquaman', 'Green Arrow'];
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onClickLeftButton(){
+  onClickLeftButton() {
     this.showLeftText = !this.showLeftText;
   }
 
-  onClickRightButton(){
+  onClickRightButton() {
     this.showRightText = !this.showRightText;
+  }
+
+  duplicateHeroes() {
+    this.superHeroes.push(...this.superHeroes);
+  }
+
+  resetHeroes() {
+    this.superHeroes = this.superHeroes.slice(0, 5);
+    this.isDuplicate = false;
   }
 
 }

@@ -4,28 +4,52 @@
     <hr>
     <div class="row">
 
-        <div class="col-6">
+        <div class="col-lg-6 col-sm-12">
             <h2>div izquierdo</h2>
             <p *ngIf="showLeftText">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla voluptatem odio nam nobis aliquid deleniti dolorum natus exercitationem velit voluptate autem consectetur impedit eveniet, porro iure facere? Aut, officia autem!
             </p>
             <button class="btn btn-primary" (click)="onClickLeftButton()">
-                ngif
+                *ngif
             </button>
         </div>
-        <div class="col-6">
+        <div class="col-lg-6 col-sm-12">
             <h2>div derecho</h2>
             <p *ngIf="showRightText">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum, mollitia quaerat. Voluptate excepturi, omnis repudiandae soluta distinctio quasi quos, velit delectus doloribus rem beatae enim eius alias neque cumque sed?
             </p>
             <button class="btn btn-primary" (click)="onClickRightButton()">
-                ngif
+                *ngif
             </button>
         </div>
 
     </div>
 
     <hr>
+
+    <div class="row">
+
+        <div class="col-12">
+            <div class="row">
+                <div class="col-6">
+                    <h1>*ngFor </h1>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-primary" (click)="duplicateHeroes()"> Duplicate Heroes </button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-danger" (click)="resetHeroes()"> Reset Heroes </button>
+                </div>
+            </div>
+            <hr>
+            <ul>
+                <li *ngFor="let heroe of superHeroes">
+                    {{ heroe }}
+                </li>
+            </ul>
+        </div>
+
+    </div>
 
 
 </div>
