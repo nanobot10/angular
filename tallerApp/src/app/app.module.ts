@@ -8,8 +8,10 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { NewsComponent } from './components/news/news.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {  HttpClientModule } from '@angular/common/http';
+import { FormsComponent } from './components/forms/forms.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,15 @@ import {  HttpClientModule } from '@angular/common/http';
     HomeComponent,
     AboutComponent,
     CapitalizePipe,
-    NewsComponent
+    NewsComponent,
+    FormsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

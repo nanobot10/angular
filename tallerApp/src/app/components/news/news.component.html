@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Noticias</h1>
     <hr>
-    <div class="row">
+    <div class="row animated fadeIn fast">
         <div class="card col-lg-3 col-md-4 col-sm-12" style="width: 18rem;" *ngFor="let new of news">
             <img [src]="new.urlToImage" class="card-img-top" alt="...">
             <h5 class="card-title">{{ new.title }}</h5>

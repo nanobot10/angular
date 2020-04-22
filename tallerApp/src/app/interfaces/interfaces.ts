@@ -21,3 +21,14 @@ export interface Source {
     id: null | string;
     name: string;
 }
+
+
+export interface User {
+    firstName: string;
+    lastName: string;
+    username: string;
+    password: string;
+    email: string;
+    phoneNumber: string;
+    address: string;
+}
