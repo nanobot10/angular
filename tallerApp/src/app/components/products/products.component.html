@@ -1,0 +1,43 @@
+<div class="container">
+    <h1>Productos</h1>
+
+    <div class="row">
+        <div class="col text-right">
+            <button class="btn btn-primary" routerLink="/product/new">
+                <i class="fa fa-plus"></i>
+                Agregar
+            </button>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Key</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Disponible</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products; let i= index;">
+                <td> {{product.key}} </td>
+                <td> {{product.titulo}} </td>
+                <td> {{product.valor}} </td>
+                <td>
+                    <span *ngIf="product.disponible" class="badge badge-success">Disponible</span>
+                    <span *ngIf="!product.disponible" class="badge badge-danger">No Disponible</span>
+                </td>
+                <td>
+                    <button class="btn btn-info mr-1" [routerLink]="[ '/product', product.key ]">
+                        <i class="fa fa-pen"></i>
+                    </button>
+                    <button class="btn btn-danger mr-1" (click)="deleteProduct(product.key)">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

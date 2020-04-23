@@ -32,3 +32,11 @@ export interface User {
     phoneNumber: string;
     address: string;
 }
+
+export interface Producto {
+    key: string;
+    titulo: string;
+    disponible: boolean;
+    fotoUrl: string;
+    valor: number;
+}

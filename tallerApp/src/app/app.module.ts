@@ -12,6 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {  HttpClientModule } from '@angular/common/http';
 import { FormsComponent } from './components/forms/forms.component';
+import { ProductsComponent } from './components/products/products.component';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { FormsComponent } from './components/forms/forms.component';
     AboutComponent,
     CapitalizePipe,
     NewsComponent,
-    FormsComponent
+    FormsComponent,
+    ProductsComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

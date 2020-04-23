@@ -1,0 +1,37 @@
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-danger" routerLink="/products">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+    </div>
+</div>
+
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="saveProduct()">
+        <div class="form-group">
+            <label>Titulo*</label>
+            <input type="text" formControlName="titulo" class="form-control" placeholder="Titulo del Producto" [class.is-invalid]="tituloValido">
+            <small *ngIf="tituloValido" class="text-danger">El titulo es requerido</small>
+        </div>
+        <div class="form-group">
+            <label>Valor*</label>
+            <input type="number" formControlName="valor" class="form-control" placeholder="Valor del Producto" [class.is-invalid]="valorValido">
+            <small *ngIf="valorValido" class="text-danger">El valor es requerido</small>
+        </div>
+        <div class="form-group">
+            <label>
+                <input type="checkbox" formControlName="disponible" value="disponible" /> Disponible
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Url imagen*</label>
+            <input type="text" formControlName="fotoUrl" class="form-control" placeholder="Url de la imagen">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-outline-primary" type="submit">
+                Guardar
+            </button>
+        </div>
+    </form>
+</div>
