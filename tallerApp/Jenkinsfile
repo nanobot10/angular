@@ -42,7 +42,7 @@ pipeline {
                         remote.allowAnyHosts = true
                         remote.user = SSH_USER_AWS
                         remote.identityFile = SSH_KEY_FOR_AWS
-                        sshCommand remote: remote, command: 'nohup sudo /opt/puppetlabs/bin/puppet agent -tod || test $? -eq 2'
+                        sshCommand remote: remote, command: 'nohup sudo /opt/puppetlabs/bin/puppet agent --environment=development -tod || test $? -eq 2'
                     }
                 }
             }
@@ -62,7 +62,7 @@ pipeline {
                         remote.allowAnyHosts = true
                         remote.user = SSH_USER_AWS
                         remote.identityFile = SSH_KEY_FOR_AWS
-                        sshCommand remote: remote, command: 'nohup sudo /opt/puppetlabs/bin/puppet agent -tod || test $? -eq 2'
+                        sshCommand remote: remote, command: 'nohup sudo /opt/puppetlabs/bin/puppet agent --environment=production -tod || test $? -eq 2'
                     }
                 }
             }
