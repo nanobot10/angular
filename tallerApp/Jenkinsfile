@@ -58,7 +58,7 @@ pipeline {
                     withCredentials([sshUserPrivateKey(credentialsId: 'puppet-slave-key', keyFileVariable: 'SSH_KEY_FOR_AWS', passphraseVariable: '', usernameVariable: 'SSH_USER_AWS')]) {
                         def remote = [:]
                         remote.name = 'aws'
-                        remote.host = '3.15.159.160'
+                        remote.host = '3.138.100.248'
                         remote.allowAnyHosts = true
                         remote.user = SSH_USER_AWS
                         remote.identityFile = SSH_KEY_FOR_AWS
