@@ -20,7 +20,7 @@ pipeline {
                 echo 'Packaging app with docker'
                 script {
                     docker.withRegistry('https://index.docker.io/v1/','dennis-dockerhub-login') {
-                        def appImage = docker.build("56373480/practica2-app:master", "./tallerApp/")
+                        def appImage = docker.build("56373480/practica3-app:master", "./tallerApp/")
                         appImage.push('master')
                     }
                 }
@@ -35,14 +35,14 @@ pipeline {
             steps{
                 echo 'deploy the code in development environment'
                 script {
-                    withCredentials([sshUserPrivateKey(credentialsId: 'puppet-slave-key', keyFileVariable: 'SSH_KEY_FOR_AWS', passphraseVariable: '', usernameVariable: 'SSH_USER_AWS')]) {
+                    withCredentials([usernamePassword(credentialsId: 'chef-dev-node', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         def remote = [:]
-                        remote.name = 'aws'
-                        remote.host = '3.17.13.21'
+                        remote.name = 'chef-dev'
+                        remote.host = '64.225.58.243'
                         remote.allowAnyHosts = true
-                        remote.user = SSH_USER_AWS
-                        remote.identityFile = SSH_KEY_FOR_AWS
-                        sshCommand remote: remote, command: 'nohup sudo /opt/puppetlabs/bin/puppet agent --environment=development -tod || test $? -eq 2'
+                        remote.user = USERNAME
+                        remote.password = PASSWORD
+                        sshCommand remote: remote, command: 'chef-client'
                     }
                 }
             }
@@ -55,14 +55,14 @@ pipeline {
             steps{
                 echo 'deploy the code in production environment'
                 script {
-                    withCredentials([sshUserPrivateKey(credentialsId: 'puppet-slave-key', keyFileVariable: 'SSH_KEY_FOR_AWS', passphraseVariable: '', usernameVariable: 'SSH_USER_AWS')]) {
+                    withCredentials([usernamePassword(credentialsId: 'chef-prod-node', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         def remote = [:]
                         remote.name = 'aws'
-                        remote.host = '3.138.100.248'
+                        remote.host = '104.236.30.46'
                         remote.allowAnyHosts = true
-                        remote.user = SSH_USER_AWS
-                        remote.identityFile = SSH_KEY_FOR_AWS
-                        sshCommand remote: remote, command: 'nohup sudo /opt/puppetlabs/bin/puppet agent --environment=production -tod || test $? -eq 2'
+                        remote.user = USERNAME
+                        remote.password = PASSWORD
+                        sshCommand remote: remote, command: 'chef-client'
                     }
                 }
             }
